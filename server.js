@@ -4,6 +4,7 @@ const morgan = require("morgan")
 const connectDB = require("./config/connectDB")
 const customersRoute = require("./routes/customersRoute")
 const usersRoute = require("./routes/usersRoute")
+const cors = require("cors")
 
 dotenv.config()
 
@@ -15,6 +16,7 @@ connectDB();
 //middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cors());
 
 //routes
 app.use("/api/v2/customers", customersRoute);
